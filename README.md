@@ -1,7 +1,7 @@
 # Interactive Menu
 
 ## Description
-Menu de opciones de cmd: C++.
+Menu de opciones de cmd desarrollado con C++.
 Parece una aplicacion sencilla pero por dentro se mezclan profundos conceptos de POO y manejo de punteros.
 
 ## Execution
