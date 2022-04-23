@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.23)
 
 project(menu VERSION 1.0)
 
-configure_file("src/Config.h.in" Config.h)
 
 add_subdirectory(cmenulib)
-
 list(APPEND EXTRA_LIBS cmenulib)
 
 add_executable(menu "src/main.cpp")
+
+configure_file("src/Config.h.in" Config.h)
 
 target_link_libraries(menu PUBLIC cmenu)
 
