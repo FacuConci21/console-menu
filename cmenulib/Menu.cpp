@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-Menu::Menu(vector<SItem<void> *> _items, __utils::SPoint _ptTopLeft = {0, 0})
+Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
     : szpItems(_items),
       ptTopLeft(_ptTopLeft),
       cursor({_ptTopLeft}),

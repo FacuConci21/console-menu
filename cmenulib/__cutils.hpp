@@ -4,8 +4,8 @@
 #include <Windows.h>
 #include <conio.h>
 
-#ifndef __UTILS_H
-#define __UTILS_H
+#ifndef __CUTILS_H
+#define __CUTILS_H
 
 #define KEY_ARROW_UP 72
 #define KEY_ARROW_DOWN 80
@@ -21,7 +21,7 @@
 #define KEY_ESCAPE 27
 #define KEY_SPACEBAR 32
 
-namespace __utils
+namespace __cutils
 {
 
     void GoToXY(int, int);
@@ -60,13 +60,13 @@ namespace __utils
 
         inline void PutCursorInConsole()
         {
-            __utils::GoToXY(ptStartPosition.x, ptCurrentPosition.y);
+            __cutils::GoToXY(ptStartPosition.x, ptCurrentPosition.y);
             _putch('>');
         }
 
         inline void ClearCursorCurrentPosition()
         {
-            __utils::GoToXY(ptCurrentPosition.x, ptCurrentPosition.y);
+            __cutils::GoToXY(ptCurrentPosition.x, ptCurrentPosition.y);
             _putch(' ');
         }
 
@@ -77,4 +77,4 @@ namespace __utils
 
 }
 
-#endif // __UTILS_H
+#endif // __CUTILS_H

@@ -3,7 +3,7 @@
 #include <vector>
 #include <conio.h>
 
-#include "__utils.hpp"
+#include "__cutils.hpp"
 
 using namespace std;
 
@@ -20,8 +20,8 @@ struct SItem
 class Menu
 {
     vector<SItem<void> *> szpItems;
-    __utils::SPoint ptTopLeft = {};
-    __utils::Cursor cursor;
+    __cutils::SPoint ptTopLeft = {};
+    __cutils::Cursor cursor;
     vector<SItem<void> *>::iterator itTarget;
     unsigned int width, height;
 
@@ -29,7 +29,7 @@ class Menu
     {
         for (size_t i = 0; i < szpItems.size(); i++)
         {
-            __utils::GoToXY(ptTopLeft.x + 3, ptTopLeft.y + i);
+            __cutils::GoToXY(ptTopLeft.x + 3, ptTopLeft.y + i);
             cout << szpItems[i]->text;
         }
     }
@@ -48,7 +48,7 @@ class Menu
     }
 
 public:
-    Menu(vector<SItem<void> *>, __utils::SPoint);
+    Menu(vector<SItem<void> *>, __cutils::SPoint);
 
     ~Menu(){};
 

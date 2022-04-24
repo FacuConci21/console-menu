@@ -1,6 +1,6 @@
-#include "__utils.hpp"
+#include "__cutils.hpp"
 
-namespace __utils
+namespace __cutils
 {
     void GoToXY(int _x, int _y)
     {
