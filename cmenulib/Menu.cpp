@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
+Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
     : szpItems(_items),
       ptTopLeft(_ptTopLeft),
       cursor({_ptTopLeft}),
@@ -9,7 +9,7 @@ Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
     height = szpItems.size();
     width = LongestTextItem();
 };
-Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0}, SAppearance _appearance = {false})
+Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0}, SAppearance _appearance = {false})
     : szpItems(_items),
       ptTopLeft(_ptTopLeft),
       cursor({_ptTopLeft}),
@@ -34,12 +34,21 @@ bool Menu::MoveCursor()
     case 72:
         cursor.ClearCursorCurrentPosition();
         cursor.MoveUp();
-        itTarget--;
+
+        if (itTarget != szpItems.begin())
+            itTarget--;
+        // itTarget = szpItems.begin();
+
         break;
     case 80:
         cursor.ClearCursorCurrentPosition();
         cursor.MoveDown(szpItems.size() - 1);
-        itTarget++;
+
+        if (itTarget != szpItems.end())
+            itTarget++;
+        else
+            itTarget = szpItems.end()--;
+
         break;
     case 13:
         return false;
@@ -47,15 +56,10 @@ bool Menu::MoveCursor()
         return true;
     }
 
-    if (itTarget < szpItems.begin())
-        itTarget = szpItems.begin();
-    else if (itTarget == szpItems.end())
-        itTarget = szpItems.end() - 1;
-
     return true;
 }
 
-vector<SItem<void> *>::iterator Menu::Loop()
+list<SItem<void> *>::iterator Menu::Loop()
 {
     bool inLoop;
     system("cls");

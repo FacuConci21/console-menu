@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 #include <conio.h>
 
 #include "__cutils.hpp"
@@ -24,19 +25,21 @@ struct SAppearance
 
 class Menu
 {
-    vector<SItem<void> *> szpItems;
+    list<SItem<void> *> szpItems;
     __cutils::SPoint ptTopLeft = {};
     __cutils::Cursor cursor;
-    vector<SItem<void> *>::iterator itTarget;
+    list<SItem<void> *>::iterator itTarget;
     unsigned int width, height;
     SAppearance sbAppearance = {};
 
     inline void ShowItems()
     {
-        for (size_t i = 0; i < szpItems.size(); i++)
+        int i = 0;
+        for (list<SItem<void> *>::iterator it = szpItems.begin(); it != szpItems.end(); it++)
         {
             __cutils::GoToXY(ptTopLeft.x + 3, ptTopLeft.y + i);
-            cout << szpItems[i]->text;
+            cout << (*it)->text;
+            i++;
         }
     }
 
@@ -54,8 +57,8 @@ class Menu
     }
 
 public:
-    Menu(vector<SItem<void> *>, __cutils::SPoint);
-    Menu(vector<SItem<void> *>, __cutils::SPoint, SAppearance);
+    Menu(list<SItem<void> *>, __cutils::SPoint);
+    Menu(list<SItem<void> *>, __cutils::SPoint, SAppearance);
 
     ~Menu(){};
 
@@ -63,7 +66,7 @@ public:
 
     bool MoveCursor();
 
-    vector<SItem<void> *>::iterator Loop();
+    list<SItem<void> *>::iterator Loop();
 };
 
 #endif
