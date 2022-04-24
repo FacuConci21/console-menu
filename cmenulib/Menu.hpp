@@ -17,6 +17,11 @@ struct SItem
     Tf (*toDo)();
 };
 
+struct SAppearance
+{
+    bool rectangle = false;
+};
+
 class Menu
 {
     vector<SItem<void> *> szpItems;
@@ -24,6 +29,7 @@ class Menu
     __cutils::Cursor cursor;
     vector<SItem<void> *>::iterator itTarget;
     unsigned int width, height;
+    SAppearance sbAppearance = {};
 
     inline void ShowItems()
     {
@@ -49,6 +55,7 @@ class Menu
 
 public:
     Menu(vector<SItem<void> *>, __cutils::SPoint);
+    Menu(vector<SItem<void> *>, __cutils::SPoint, SAppearance);
 
     ~Menu(){};
 

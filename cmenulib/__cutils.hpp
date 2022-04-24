@@ -25,6 +25,8 @@ namespace __cutils
 {
 
     void GoToXY(int, int);
+    void DrawVerticalLine(int, int, int);
+    void DrawHorizontalLine(int, int, int);
 
     struct SPoint
     {

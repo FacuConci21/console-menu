@@ -9,6 +9,16 @@ Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
     height = szpItems.size();
     width = LongestTextItem();
 };
+Menu::Menu(vector<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0}, SAppearance _appearance = {false})
+    : szpItems(_items),
+      ptTopLeft(_ptTopLeft),
+      cursor({_ptTopLeft}),
+      itTarget(szpItems.begin()),
+      sbAppearance(_appearance)
+{
+    height = szpItems.size();
+    width = LongestTextItem();
+};
 
 void Menu::AppendItem(SItem<void> *_item)
 {
