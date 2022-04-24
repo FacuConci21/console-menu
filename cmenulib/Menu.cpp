@@ -1,20 +1,10 @@
 #include "Menu.hpp"
 
-Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0})
+Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft)
     : szpItems(_items),
       ptTopLeft(_ptTopLeft),
       cursor({_ptTopLeft}),
       itTarget(szpItems.begin())
-{
-    height = szpItems.size();
-    width = LongestTextItem();
-};
-Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0}, SAppearance _appearance = {false})
-    : szpItems(_items),
-      ptTopLeft(_ptTopLeft),
-      cursor({_ptTopLeft}),
-      itTarget(szpItems.begin()),
-      sbAppearance(_appearance)
 {
     height = szpItems.size();
     width = LongestTextItem();
@@ -25,13 +15,21 @@ void Menu::AppendItem(SItem<void> *_item)
     szpItems.push_back(_item);
 }
 
+void Menu::InsertItemAt(SItem<void> *_item, unsigned int _at)
+{
+    if (szpItems.size() < _at)
+        throw std::runtime_error("Has indicado un indice mayor a la cantidad de elementos en la lista.");
+    else
+        szpItems.insert(next(szpItems.begin(), _at), _item);
+}
+
 bool Menu::MoveCursor()
 {
     cursor.PutCursorInConsole();
 
     switch (_getch())
     {
-    case 72:
+    case KEY_ARROW_UP:
         cursor.ClearCursorCurrentPosition();
         cursor.MoveUp();
 
@@ -40,7 +38,7 @@ bool Menu::MoveCursor()
         // itTarget = szpItems.begin();
 
         break;
-    case 80:
+    case KEY_ARROW_DOWN:
         cursor.ClearCursorCurrentPosition();
         cursor.MoveDown(szpItems.size() - 1);
 
@@ -50,7 +48,7 @@ bool Menu::MoveCursor()
             itTarget = szpItems.end()--;
 
         break;
-    case 13:
+    case KEY_ENTER:
         return false;
     default:
         return true;

@@ -57,12 +57,13 @@ class Menu
     }
 
 public:
-    Menu(list<SItem<void> *>, __cutils::SPoint);
-    Menu(list<SItem<void> *>, __cutils::SPoint, SAppearance);
+    Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft = {0, 0});
 
     ~Menu(){};
 
-    void AppendItem(SItem<void> *);
+    void AppendItem(SItem<void> *_item);
+
+    void InsertItemAt(SItem<void> *_item, unsigned int _at);
 
     bool MoveCursor();
 

@@ -2,6 +2,6 @@ build/*
 
 !build/build.txt
 
-.vsconfig
+.vscode
 
 templates/

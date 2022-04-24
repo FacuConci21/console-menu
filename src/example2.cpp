@@ -10,13 +10,15 @@ void salir();
 
 int main(int argc, char *argv[])
 {
+
     SItem<void> fistItem = {"primer item", primerItem};
     SItem<void> secondItem = {"segundo item", segundoItem};
     SItem<void> quit = {"salir", salir};
 
-    Menu menu({&fistItem, &quit}, {2, 8}, {true});
-// you can add a new item after defining the menu
-    menu.AppendItem(&secondItem);
+    Menu menu({&fistItem, &quit}, {2, 8});
+    // you can add a new item after defining the menu
+    // menu.AppendItem(&secondItem);
+    menu.InsertItemAt(&secondItem, 1);
 
     auto it = *menu.Loop();
 
