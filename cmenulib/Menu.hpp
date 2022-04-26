@@ -16,6 +16,12 @@ struct SItem
 {
     string text;
     Tf (*toDo)();
+    void *submenu;
+
+    SItem(string _text, Tf (*_toDo)()): text(_text), toDo(_toDo), submenu(nullptr) {}
+    SItem(string _text, void *_submenu): text(_text), toDo(nullptr), submenu(_submenu) {}
+
+    ~SItem() { ::operator delete(submenu); }
 };
 
 struct SAppearance
