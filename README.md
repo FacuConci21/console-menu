@@ -1,23 +1,28 @@
-# Interactive Menu
+# Console Menu
 
 ## Description
-Menu de opciones de cmd desarrollado con C++.
-Parece una aplicacion sencilla pero por dentro se mezclan profundos conceptos de POO y manejo de punteros.
+`Console Menu` is a static library project that you can use in your C++ console applications. So you will give it more interactivity and make more interesting.
 
-## Inside the Project
-Por dentro la clase `Menu` contiene un _vector_, en el sentido de C++, cada elemento de ese vector almacena un puntero a una estructura con un atributo _texto_, el cual representa la cadena de caracteres de un item, y un atributo _toDo_, que no es mas que un puntero a una funcion que determina el comportamiento a realizar del item en cuestion.
-El `Menu`, se encarga de manejar su dibujado en pantalla y la interaccion con el cursor.
+![](./doc/example1.png)
 
-## Execution
-Para probar el programa se puede descargar el archivo `menu_test.exe` o bien clonar el repositorio de manera local (en una pc con sistema operativo Windows) y luego desde el `cmd` ejecuta el script:
+## Usage
+For include the library, you can copy the `lib` directory or its contents into your project directory. Then use the `include` directive to call the `Menu.hpp` header file from your source code.
 
-```bash
-# compilation
-C:/> make
 ```
+#include <iostream>
+// include the library
+#include "Menu.hpp"
 
-Este comando compilara el codigo entero de los archivos de los directorios del proyecto, generando un archivo `menu_test.exe` y ejecutandolo automaticamente una vez que termine la compilacion.
+int main(int argc, char *argv[])
+{
+    return 0;
+}
+```
+On `src` directory, you can find some examples for implementation. Take a look there.
+
+## Actions
+Use the keyboard arrows to move the menu's cursor.
 
 ## Stay in touch
 
-- Author (this project) - [Facundo Conci](https://www.linkedin.com/in/facundo-ignacio-conci-caceres/)
+- Author - [Facundo Conci](https://www.linkedin.com/in/facundo-ignacio-conci-caceres/)

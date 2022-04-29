@@ -1,6 +1,4 @@
-build/*
-
-!build/build.txt
+build/
 
 .vscode
 
