@@ -1,11 +1,12 @@
 #pragma once
 
+#ifndef __CUTILS_H
+#define __CUTILS_H
+
 #include <iostream>
 #include <Windows.h>
 #include <conio.h>
 
-#ifndef __CUTILS_H
-#define __CUTILS_H
 
 #define KEY_ARROW_UP 72
 #define KEY_ARROW_DOWN 80

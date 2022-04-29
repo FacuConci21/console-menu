@@ -1,6 +1,6 @@
 #include "Menu.hpp"
 
-Menu::Menu(list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft)
+Menu::Menu(std::list<SItem<void> *> _items, __cutils::SPoint _ptTopLeft)
     : szpItems(_items),
       ptTopLeft(_ptTopLeft),
       cursor({_ptTopLeft}),
@@ -57,7 +57,7 @@ bool Menu::MoveCursor()
     return true;
 }
 
-list<SItem<void> *>::iterator Menu::Loop()
+std::list<SItem<void> *>::iterator Menu::Loop()
 {
     bool inLoop;
     system("cls");
