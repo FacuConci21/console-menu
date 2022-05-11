@@ -6,7 +6,7 @@
 ![](./doc/example1.png)
 
 ## Usage
-For include the library, you can copy the `lib` directory or its contents into your project directory. Then use the `include` directive to call the `Menu.hpp` header file from your source code.
+For include the library, you can copy the `lib` and `include` directories or its contents into your project directory. Then use the `include` directive to call the `Menu.hpp` header file from your source code.
 
 ```
 #include <iostream>
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     return 0;
 }
 ```
-On `src` directory, you can find some examples for implementation. Take a look there.
+On `examples` directory, you can find some examples for usage. Take a look there.
 
 ## Actions
 Use the keyboard arrows to move the menu's cursor.
