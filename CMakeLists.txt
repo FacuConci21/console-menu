@@ -5,8 +5,8 @@ project(menu VERSION 1.0)
 add_subdirectory(cmenulib)
 list(APPEND EXTRA_LIBS cmenulib)
 
-add_executable(example1 "src/example1.cpp")
-add_executable(example2 "src/example2.cpp")
+add_executable(example1 "examples/example1.cpp")
+add_executable(example2 "examples/example2.cpp")
 
 configure_file("src/Config.h.in" Config.h)
 
